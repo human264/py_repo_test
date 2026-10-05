@@ -32,7 +32,7 @@ class GifConverter:
         print(self.path_in, self.path_out, self.resize)
 
         img, *images = \
-        [Image.open(f).resize(self.resize, Image.ANTIALIAS) for f in sorted(glob.glob(self.path_in))]
+        [Image.open(f).resize(self.resize, Image.Resampling.LANCZOS) for f in sorted(glob.glob(self.path_in))]
 
         try:
             img.save(
